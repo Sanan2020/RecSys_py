@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommentdaion System</title>
+    <!-- ลิงก์ไปยัง Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ปรับแต่ง Sidebar */
+        .sidebar {
+            /* background-color: #272c31; */
+           
+            height: 100vh;
+            padding-top: 20px;
+
+            overflow-y: auto; /* แสดง Scrollbar เมื่อเนื้อหามากเกินไป */
+        }
+
+        .col-md-6{
+            background-color: #212529;
+        }
+        .table{
+            background-color: #e1e6e6;
+        }
+        .col-md-3{
+            background-color: #334646;
+            
+        }
+        /* ปรับแต่ง Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .movie-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+
+            /* background-color: #f8f9fa; */
+        }
+
+        .movie-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .movie-title {
+            font-weight: bold;
+        }
+
+        .movie-info {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* สไตล์ Checkbox */
+        .movie-checkbox {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar Section -->
+            <div class="col-md-3 sidebar">
+                <h4 class="text-center">เลือกหนัง</h4>
+                <ul class="nav flex-column">
+                    {% for movie in movies %}
+                    <!-- ตัวอย่างรายการหนัง -->
+                    <li class="nav-item movie-item">
+                      
+                        <label>
+                            <input type="checkbox" class="movie-checkbox" value="1"/>
+                            <div class="movie-title">เรื่อง : ({{ movie.title }})</div>
+                            <div class="movie-info">ID: {{ movie.movieId }} | Rating: 8.2 | Genres: {{ movie.genres }}</div>
+                        
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Main Content Section -->
+            <div class="col-md-6">
+                <!-- Table Section -->
+                <h4 class="mt-4 center" style="color: aliceblue;">กรอกคะแนน</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ชื่อ</th>
+                            <th>อายุ</th>
+                            <th>อีเมล</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>นายสมชาย</td>
+                            <td>30</td>
+                            <td>somchai@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>นางสาวสมหญิง</td>
+                            <td>25</td>
+                            <td>samying@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายอาทิตย์</td>
+                            <td>35</td>
+                            <td>athit@example.com</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Grid Section -->
+            <div class="col-md-3">
+                <h4 class="mt-4" style="color: aliceblue;">แนะนำหนัง</h4>
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h5 class="card-title">ไอเทม 1</h5>
+                                <p class="card-text">รายละเอียดเกี่ยวกับไอเทม 1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                       
+                            <div class="card-body">
+                                <h5 class="card-title">ไอเทม 2</h5>
+                                <p class="card-text">รายละเอียดเกี่ยวกับไอเทม 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">ไอเทม 3</h5>
+                                <p class="card-text">รายละเอียดเกี่ยวกับไอเทม 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 nntt | สงวนลิขสิทธิ์</p>
+    </footer>
+
+    <!-- ลิงก์ไปยัง Bootstrap JS และ Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
